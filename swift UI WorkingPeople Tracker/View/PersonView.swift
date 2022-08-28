@@ -9,12 +9,13 @@ import SwiftUI
 
 struct PersonView: View {
     
-    var person:Person
-    @EnvironmentObject var model:Model
+    @EnvironmentObject var model: Model
+    var person: Person
+
     
     var body: some View {
         VStack{
-            if model.shownName{
+            if model.showName{
                 Text("name: \(person.name)")
             }
             if model.showAddress{
@@ -23,7 +24,7 @@ struct PersonView: View {
             if model.showAddress{
                 Text("Company: \(person.company)")
             }
-            if model.showYearsOfExp{
+            if model.showYears{
                 Text("Years of Expirience: \(person.yearsOfExperience)")
             }
         }
@@ -36,6 +37,7 @@ struct personsViewmodel_Previews: PreviewProvider {
                                   address: "ave 12 1/7",
                                   company: "Chupik eco",
                                   yearsOfExperience: 12)
+                   
         ).environmentObject(Model())
     }
 }

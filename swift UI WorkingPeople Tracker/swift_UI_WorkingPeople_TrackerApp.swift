@@ -12,6 +12,7 @@ struct swift_UI_WorkingPeople_TrackerApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(Model())
         }
     }
 }

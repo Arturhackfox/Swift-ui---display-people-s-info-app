@@ -8,17 +8,14 @@
 import Foundation
 
 
-
-class Model: ObservableObject {
+class Model : ObservableObject {
     
-    @Published var shownName = true
+    @Published var showName = true
     @Published var showAddress = true
     @Published var showCompany = true
-    @Published var showYearsOfExp = true
+    @Published var showYears = true
     
-    
-    
-   static var people = [
+    var people = [
         Person(
             name: "Inigo Montoya",
             address: "555 Youkilledmyfather Street",
@@ -50,14 +47,13 @@ class Model: ObservableObject {
             yearsOfExperience: 17
         )
     ]
+    
 }
-    struct Person:Identifiable {
-        
-        var id = UUID()
-        var name: String
-        var address: String
-        var company: String
-        var yearsOfExperience: Int
-    }
 
-
+struct Person : Identifiable {
+    var id = UUID()
+    var name: String
+    var address: String
+    var company: String
+    var yearsOfExperience: Int
+}

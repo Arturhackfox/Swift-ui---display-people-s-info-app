@@ -9,56 +9,56 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @EnvironmentObject var model:Model
+    @EnvironmentObject var model: Model
+    
     
     var body: some View {
-        NavigationView{
-            TabView{
-                VStack{
-                    Text("People")
-                        .font(.largeTitle)
-                        .bold()
-                        .padding()
-                    List(Model.people){ p in
-                        PersonView(person: p)
-                     
-                    }
-                   
-                }
-                .tabItem {
-                        VStack{
-                            Image(systemName: "person.2")
-                            Text("Tab 1")
-                        }
-                    }
-            
-                VStack(alignment: .center){
-                    
-                Toggle("Show Name", isOn: $model.shownName)
-                Toggle("Show address", isOn: $model.showAddress)
-                Toggle("Show company", isOn: $model.showCompany)
-                Toggle("Show years of expirience", isOn: $model.showYearsOfExp)
-                    Spacer()
-                }.navigationTitle("Display preferences")
-                .padding(52)
-                .tabItem {
-                    VStack{
-                        Image(systemName: "gear")
-                        Text("Tab 2")
-                    }
-                }
-            
-            }
+        
+        TabView{
+            VStack{
+                Text("People")
+                    .font(.largeTitle)
+                    .bold()
                 
+                List(model.people) { p in
+                    PersonView(person: p)
+                }
+                
+            }
+            .tabItem {Image(systemName: "person.2")}
+            
+            VStack {
+                Text("Display Preferences")
+                    .font(.title)
+                    .bold()
+                
+                Toggle("Show name:", isOn: $model.showName)
+                
+                Toggle("Show address:", isOn: $model.showAddress)
+                
+                Toggle("Show company:", isOn: $model.showCompany)
+                
+                Toggle("Show years of experience:", isOn: $model.showYears)
+                
+                Spacer()
+            }.padding(44)
+                .tabItem {Image(systemName: "gear")}
+                .padding()
             
         }
+        
     }
+    
 }
+
+
 
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
             .environmentObject(Model())
+        
+        
     }
 }
