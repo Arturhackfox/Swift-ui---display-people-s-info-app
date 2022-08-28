@@ -1,0 +1,19 @@
+
+[
+    {"name": "indogo white",
+        "address":"wall street",
+        "company":"moneymo",
+        "yearsOfExp": 35
+    },
+    {"name": "jolo",
+        "address":"copeter 233",
+        "company":"sosc",
+        "yearsOfExp": 2
+    },
+    {
+        "name": "nii",
+            "address":"china1",
+            "company":"ssazxcpdo",
+            "yearsOfExp": 5
+    }
+]
